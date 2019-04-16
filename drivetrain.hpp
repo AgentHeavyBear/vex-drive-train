@@ -120,7 +120,12 @@ namespace drivetrain {
         }
       }
 
-      // sets robot to turn at voltage, postiive voltage turns left
+      // sets robot to turn using move function(127 to -127 scale), positive turns left
+      void turn(int speed) {
+        this->drive(-speed, "LEFT");
+        this->drive(speed, "RIGHT");
+      }
+      // sets robot to turn at voltage, positive voltage turns left
       void turn_voltage(int volt) {
         this->drive_voltage(-volt, "LEFT");
         this->drive_voltage(volt, "RIGHT");
