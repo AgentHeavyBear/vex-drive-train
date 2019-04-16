@@ -1,0 +1,41 @@
+This is a complete list of all currently implemented functions and what they do, in most cases they do what their single motor equivalent does,
+except on the whole drive train.
+
+member functions:
+
+setup:
+
+add_left_motor(pros::Motor *motor) - adds motor pointer to left motor list
+add_right_motor(pros::Motor *motor) - adds motor pointer to right motor list
+
+!!!FOR ALL FUNCTIONS WITH OPTIONAL PARAM "which" - sets which motors the function applies to, LEFT, RIGHT, or ALL by default.!!!
+
+movement: 
+
+drive(int speed, std::string which = "") - sets voltage of selected motors from 127 to -127
+
+drive_voltage(int volt, std::string which = "") - sets voltage of selected motors from 12000 to -12000
+
+drive_velocity(int vel, std::string which = "") - sets velocity in RMP of selected motors
+
+drive_relative(double distance, int vel, std::string which = "") - sets relative target position for selected motors to move to
+
+turn(int speed) - sets robot to turn with voltage 127 to -127, positive values turn left
+
+turn_voltage(int volt) - sets robot to turn with voltage 12000 to -12000, positive values turn left
+
+turn_velocity(int vel) - sets robot to turn with RPM, positive values turn left
+
+telemetry:
+
+get_position(std::string which = "") - gets average encoder value of selected motors
+
+tare_position(std::string which = "") - sets the zero position of selected motor's encoder to the current position
+
+get_velocity(std::string which = "") - gets the average velocity of selected motors
+
+is_stopped(std::string which = "") - returns 1 if all selected motors are stopped, and 0 otherwise
+
+get_direction(std::string which = "") - returns 1 if all selected motors are moving forward, -1 if all selected motors are moving backwards, and 0 if any selected motors are moving opposite any other selected motors
+
+get_temperature(std::string which = "") - gets average temperature of selected motors (temp sensors only record to the nearest 5 degrees C)
